@@ -1,0 +1,9 @@
+#!/bin/bash
+
+read -p "Введите имя файла: " file
+if [[ "$file" == "n" ]]; then echo "Выход..."; exit 0; fi
+d_file=$(find -maxdepth 1 -iname "$file")
+if [[ -z "$d_file" ]]; then echo "Ничего не найдено!"; exit 1; fi
+rm -rf $d_file
+echo "Файл $d_file успешно удалён"
+exit 0
